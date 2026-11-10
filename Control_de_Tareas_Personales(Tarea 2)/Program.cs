@@ -1,10 +1,14 @@
 ﻿
 class Program
 {
+
+
     static Dictionary<int, string> tasks = new Dictionary<int, string>();
     static Dictionary<int, string> descriptions = new Dictionary<int, string>();
     static Dictionary<int, string> categories = new Dictionary<int, string>();
     static Dictionary<int, string> statuses = new Dictionary<int, string>();
+
+    static List<int> taskIds = new List<int>();
 
     static void Main()
     {
@@ -22,7 +26,7 @@ class Program
                 Console.WriteLine("Error: debes ingresar un número del menú.");
                 continue;
             }
-             
+
             try
             {
                 switch (Option)
@@ -144,6 +148,7 @@ class Program
         descriptions.Add(taskId, taskDescription);
         categories.Add(taskId, taskCategory);
         statuses.Add(taskId, tasStatus);
+        taskIds.Add(taskId);
 
         Console.WriteLine("Tarea agregada correctamente.");
         Console.WriteLine($"ID de la tarea: {taskId}");
@@ -308,19 +313,18 @@ class Program
     static void SearchName()
     {
         string name = ReadValidText("Ingrese el nombre (o parte del nombre): ");
+        bool found = false;
 
-        bool foundName = false;
-
-        foreach (var task in tasks)
+        foreach (int id in taskIds)
         {
-            if (task.Value.Contains(name, StringComparison.OrdinalIgnoreCase))
+            if (tasks[id].Contains(name, StringComparison.OrdinalIgnoreCase))
             {
-                ShowTask(task.Key);
-                foundName = true;
+                ShowTask(id);
+                found = true;
             }
         }
 
-        if (!foundName)
+        if (!found)
         {
             Console.WriteLine("No se encontraron tareas con ese nombre.");
         }
@@ -329,19 +333,18 @@ class Program
     static void SearchCategory()
     {
         string category = ReadValidText("Ingrese la categoría: ");
+        bool found = false;
 
-        bool foundCategory = false;
-
-        foreach (var cat in categories)
+        foreach (int id in taskIds)
         {
-            if (cat.Value.Contains(category, StringComparison.OrdinalIgnoreCase))
+            if (categories[id].Contains(category, StringComparison.OrdinalIgnoreCase))
             {
-                ShowTask(cat.Key);
-                foundCategory = true;
+                ShowTask(id);
+                found = true;
             }
         }
 
-        if (!foundCategory)
+        if (!found)
         {
             Console.WriteLine("No se encontraron tareas en esa categoría.");
         }
@@ -349,20 +352,19 @@ class Program
 
     static void SearchStatues()
     {
-        string status = ReadValidText("Ingrese el estado: ");
+        string status = ReadValidText("Ingrese el estado (Pendiente / Completada): ");
+        bool found = false;
 
-        bool foundStatus = false;
-
-        foreach (var state in statuses)
+        foreach (int id in taskIds)
         {
-            if (state.Value.Contains(status, StringComparison.OrdinalIgnoreCase))
+            if (statuses[id].Contains(status, StringComparison.OrdinalIgnoreCase))
             {
-                ShowTask(state.Key);
-                foundStatus = true;
+                ShowTask(id);
+                found = true;
             }
         }
 
-        if (!foundStatus)
+        if (!found)
         {
             Console.WriteLine("No se encontraron tareas con ese estado.");
         }
@@ -382,18 +384,16 @@ class Program
     {
         Console.WriteLine("\nLista de tareas");
 
-        if (tasks.Count == 0)
+        if (taskIds.Count == 0)
         {
             Console.WriteLine("No hay tareas registradas.");
             return;
         }
 
-        foreach (var task in tasks)
+        foreach (int taskId in taskIds)
         {
-            int taskId = task.Key;
-
             Console.WriteLine($"ID: {taskId}");
-            Console.WriteLine($"Nombre: {task.Value}");
+            Console.WriteLine($"Nombre: {tasks[taskId]}");
             Console.WriteLine($"Descripción: {descriptions[taskId]}");
             Console.WriteLine($"Categoría: {categories[taskId]}");
             Console.WriteLine($"Estado: {statuses[taskId]}");
@@ -429,6 +429,7 @@ class Program
         descriptions.Remove(taskId);
         categories.Remove(taskId);
         statuses.Remove(taskId);
+        taskIds.Remove(taskId);
 
         Console.WriteLine("Tarea eliminada correctamente.");
     }
