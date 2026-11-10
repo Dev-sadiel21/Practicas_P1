@@ -31,34 +31,45 @@ class Program
             {
                 switch (Option)
                 {
+
                     case 1:
-                        AddTasks();
-                        break;
+                        {
+                            AddTasks();
+                            break;
+                        }
 
                     case 2:
-                        ModifyTask();
-                        break;
-
+                        {
+                            ModifyTask();
+                            break;
+                        }
                     case 3:
-                        CompleteTaks();
-                        break;
+                        {
+                            CompleteTaks();
+                            break;
+                        }
 
                     case 4:
-                        FindTaks();
-                        break;
-
+                        {
+                            FindTaks();
+                            break;
+                        }
                     case 5:
-                        ListTaks();
-                        break;
-
+                        {
+                            ListTaks();
+                            break;
+                        }
                     case 6:
-                        DeleteTaks();
-                        break;
+                        {
+                            DeleteTaks();
+                            break;
+                        }
 
                     case 7:
-                        Console.WriteLine("Saliendo del programa...");
-                        break;
-
+                        {
+                            Console.WriteLine("Saliendo del programa...");
+                            break;
+                        }
                     default:
                         Console.WriteLine("Opción no válida.");
                         break;
@@ -265,23 +276,32 @@ class Program
         switch (option)
         {
             case 1:
-                SearchId();
-                break;
-
+                {
+                    SearchId();
+                    break;
+                }
             case 2:
-                SearchName();
-                break;
+                {
+                    SearchName();
+                    break;
+                }
 
             case 3:
-                SearchCategory();
-                break;
+                {
+                    SearchCategory();
+                    break;
+                }
 
             case 4:
-                SearchStatues();
-                break;
+                {
+                    SearchStatues();
+                    break;
+                }
 
             case 5:
-                return;
+                {
+                    return;
+                }
 
             default:
                 Console.WriteLine("Opción no válida.");
