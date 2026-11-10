@@ -1,5 +1,4 @@
-﻿using Control_de_Tareas_Personales_Tarea_3_;
-
+﻿
 class Program
 {
     static GestorTarea gestor = new GestorTarea();
