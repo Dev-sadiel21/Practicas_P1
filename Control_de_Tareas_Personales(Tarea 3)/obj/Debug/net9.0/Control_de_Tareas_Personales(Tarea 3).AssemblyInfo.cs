@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Control_de_Tareas_Personales(Tarea 3)")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9c7f6f41b974a00b895725cf10a7e10873c477d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+712fe89e529631acae07a4242e5fa3244f7dd1ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("Control_de_Tareas_Personales(Tarea 3)")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Control_de_Tareas_Personales(Tarea 3)")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
